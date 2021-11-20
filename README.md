@@ -9,17 +9,14 @@ partition does not interfere with itself is equivalent to the
 the [vertex colouring of a graph][graph_colour_wp], both of which are NP-hard
 and thus computationally infeasible to find optimal solutions for. This project
 is a brute-force proof-of-concept that exhaustively solves the problem of good
-skincare!
+skincare product grouping!
 
 ## Usage
 
-1. Modify the ingredient conflict dictionary (named `conflict` in `pigment.py`)
-   to reflect your skincare products. If you say `A` conflicts with `B`, you
-   don't have to also write the rule that `B` conflicts with `A`. The script
-   handles the reflexivity.
-
-   In the code, this is done through a dictionary of strings named `conflicts`.
-   Use the sample code to create your own list.
+1. Modify the ingredient conflict dictionary (named `CONFLICTS` in the
+   `pigment.py` mainline) to reflect your skincare products. If you say `A`
+   conflicts with `B`, you don't have to also write the rule that `B` conflicts
+   with `A`. The script handles the reflexivity.
 
 2. Run the program (you need Python 3):
 
