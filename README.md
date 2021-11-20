@@ -50,7 +50,21 @@ _n_<sup>th</sup> [Bell number][bell_number_wp] and it is sequence
 [A000110][num_seq] in the OEIS.
 
 It runs in _O(a fuckton of time)_. If you have a lot of stuff in your skincare
-routine, this algorithm may take forever to run.
+routine, this algorithm may take forever to run. It is recommended that you do
+not add vanity elements (aka adding an element just for it to show up in the
+final result) such as:
+
+```python
+CONFLICTS = OrderedDict((
+    ("A", ["B", "C"])
+    ("D", [])
+))
+```
+
+In this case, `"D"` is a vanity element; it contributes nothing to conflict
+data but bloats the state space (which, in a brute-force algorithm like this,
+is not good). If an element doesn't conflict with anything, then use it as
+liberally as you like without restriction.
 
 You have been warned.
 
