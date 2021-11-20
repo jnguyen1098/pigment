@@ -125,7 +125,7 @@ and every midding edge in the original graph is now an edge. In layperson's
 terms, a complement graph _G2_ for graph _G_ contains only the edges necessary
 to turn _G_ into a complete graph, as shown by this diagram:
 
-![complement of the Petersen graph](resources/comp_petersen.png)
+![complement of the Petersen graph](resources/comp_petersen.jpg)
 _Image edited by Claudio Rocchini; derived from David Eppstein. See `LICENSE`
 for details_
 
