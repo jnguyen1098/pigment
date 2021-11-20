@@ -11,7 +11,7 @@ HIPPIE = "Mad Hippie"
 ELAA = "Ethylated Ascorbic Acid"
 RETINOL = "Retinol"
 
-conflicts = {
+CONFLICTS = {
     BUFFET: [AHA, BHA, HIPPIE, ELAA, RETINOL],
     AHA: [RETINOL],
     BHA: [RETINOL],
@@ -21,7 +21,7 @@ conflicts = {
 
 ingredient_names = []
 
-for conflictor, list_of_conflicts in conflicts.items():
+for conflictor, list_of_conflicts in CONFLICTS.items():
     ingredient_names.append(conflictor)
     for conflict in list_of_conflicts:
         ingredient_names.append(conflict)
@@ -36,9 +36,9 @@ def valid(curr):
     for group in curr:
         for i in range(len(group)):
             for j in range(i + 1, len(group)):
-                if group[i] in conflicts and group[j] in conflicts[group[i]]:
+                if group[i] in CONFLICTS and group[j] in CONFLICTS[group[i]]:
                     return False
-                if group[j] in conflicts and group[i] in conflicts[group[j]]:
+                if group[j] in CONFLICTS and group[i] in CONFLICTS[group[j]]:
                     return False
 
     return True
@@ -61,8 +61,18 @@ def backtrack(idx):
             backtrack(idx + 1)
             curr[i].pop()
 
-backtrack(0)
 
-for line in result:
-    print(line)
-print(len(result))
+def get_partitions(conflicts):
+    backtrack(0)
+    return result
+
+
+def main():
+    partitions = get_partitions(CONFLICTS)
+    for line in partitions:
+        print(line)
+    print(len(partitions))
+
+
+if __name__ == "__main__":
+    main()
