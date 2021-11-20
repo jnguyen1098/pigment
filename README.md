@@ -72,7 +72,7 @@ node represents a skincare ingredient and each edge between node _a_ and node
 _b_ represents the sentence "ingredient _a_ is compatible with ingredient _b_".
 We can represent the relation above as such:
 
-<!--image1-->
+![compatibility graph](resources/compat_graph.svg)
 
 The ideal here is that we want to take all four of these ingredients at once,
 however as noted by the conflicts above, that isn't possible. The next best
@@ -83,7 +83,7 @@ retinol with ferrulic acid (as the group potentially containing ferrulic acid)
 contains AHAs/BHAs, which are incompatible with retinol, as shown by the lack
 of edge.
 
-<!--image2-->
+![minimum clique](resources/min_clique.svg)
 
 This is the optimal solution. In one skincare session, we take retinol with the
 copper peptides, and another session we take AHAs/BHAs and ferrulic acid.
@@ -135,20 +135,21 @@ makes specifications a whole lot easier to make, as now we can assume anything
 that isn't connected by an edge is compatible. If we change our first graph to
 model conflicts instead of synergies, we get the following:
 
-<!--image3-->
+![conflict graph](resources/conflict_graph.svg)
 
 Our problem is now to induce subgraphs such that none of the nodes have any
 edges between them. Each subgraph is its own group. In this example, we induce
 the subgraphs for the nodes {`Retinol`, `Copper peptides`} as well as for
 {`Ferrulic acid`, `AHAs/BHAs`}, as each graph has no nodes:
 
-<!--image4-->
+![coloured conflict graph](resources/coloured_conflicts.svg)
 
 Those with a background in CS will immediately notice that this is actually the
 well-studied graph colouring sub-problem known as "vertex colouring": colouring
 a graph such that no two colours are adjacent to each other. In this case, each
 colour group represents a partition, like from earlier. Again, the optimization
-problem is NP-hard and is intractable.
+problem is NP-hard and is intractable. Which is why the algorithm solves the
+colouring problem in the ugliest, most brute force way possible.
 
 ## Bibliography
 
