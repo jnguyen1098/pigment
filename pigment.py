@@ -3,14 +3,14 @@
 import copy
 import math
 from collections import OrderedDict, namedtuple
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Any, Dict, List, Union
 
 
 @dataclass
 class Result:
     min_len: int = 9999999999
-    best: Union[List[List[Any]], None] = None
+    best: List[List[Any]] = field(default_factory=list)
 
 def valid(curr: List[Union[Any, List[Any]]], conflicts: Dict[Any, Any]) -> bool:
     for group in curr:
@@ -40,7 +40,7 @@ def backtrack(idx: int, curr: List[Union[Any, List[Any]]], conflicts: Dict[Any, 
             curr[i].pop()
 
 
-def get_partitions(conflicts):
+def get_partitions(conflicts: Dict[Any, Any]) -> List[List[Any]]:
     ingredient_names = []
     for conflictor, list_of_conflicts in conflicts.items():
         ingredient_names.append(conflictor)
@@ -49,12 +49,12 @@ def get_partitions(conflicts):
 
     result = Result()
     ingredient_names = list(OrderedDict((name, None) for name in ingredient_names))
-    curr = []
+    curr: List[Union[Any, List[Any]]] = []
     backtrack(0, curr, conflicts, ingredient_names, result)
     return result.best
 
 
-def main():
+def main() -> None:
     BUFFET = "Buffet + Copper Peptides"
     AHA = "Alpha Hydroxy Acids"
     BHA = "Beta Hydroxy Acids"
