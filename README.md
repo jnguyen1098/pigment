@@ -31,12 +31,13 @@ This algorithm takes in an adjacency list for a conflict graph where each edge
 between two nodes represents an instance of two ingredients conflicting.
 
 It then exhaustively generates every possible partition using a recursive
-backtracking algorithm, where for each ingredient, it explores every sub-tree
-consisting of adding the ingredient to every existing partition before finally
-creating a new partition. Each terminal/leaf node represents a generated
-group of partitions, which we exhaustively check: for each partition in the
-group, we check to see if any pair exists as an edge in the conflict
-dictionary. If no such pairs exist among any partition, the group is valid.
+backtracking depth-first-search algorithm where for each ingredient, it
+explores every sub-tree consisting of adding the ingredient to every existing
+partition before finally creating a new partition. Each terminal/leaf node
+represents a generated group of partitions, which we exhaustively check: for
+each partition in the group, we check to see if any pair exists as an edge in
+the conflict dictionary. If no such pairs exist among any partition, the group
+is valid.
 
 ![partition tree](resources/partitions.svg)
 
