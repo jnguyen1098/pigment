@@ -8,8 +8,8 @@ from typing import List, Union
 CONFLICTS = None
 ingredient_names = None
 
-curr: List[Union[List[str], str]] = []
-min_len = math.inf
+curr = None
+min_len = None
 result = None
 
 def valid(curr):
@@ -45,8 +45,14 @@ def backtrack(idx):
 def initialize(conflicts):
     global CONFLICTS
     global ingredient_names
+    global curr
+    global min_len
+    global result
 
     CONFLICTS = conflicts
+    curr = []
+    min_len = math.inf
+    result = None
 
     ingredient_names = []
     for conflictor, list_of_conflicts in CONFLICTS.items():
