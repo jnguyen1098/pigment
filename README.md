@@ -2,12 +2,11 @@
 
 The problem of splitting up a skincare regime into partitions such that each
 partition does not interfere with itself is equivalent to the
-[minimal clique cover problem](https://en.wikipedia.org/wiki/Clique_cover),
-which can be transformed into the
-[vertex colouring of a graph](https://en.wikipedia.org/wiki/Graph_coloring#Vertex_coloring),
-both of which are NP-hard and thus computationally infeasible to find optimal
-solutions for. This project is a brute-force proof-of-concept that exhaustively
-solves the problem of good skincare!
+[minimal clique cover problem][clique_cover_wp], which can be transformed into
+the [vertex colouring of a graph][graph_colour_wp], both of which are NP-hard
+and thus computationally infeasible to find optimal solutions for. This project
+is a brute-force proof-of-concept that exhaustively solves the problem of good
+skincare!
 
 ## Usage
 
@@ -44,8 +43,8 @@ is valid.
 The algorithm looks for the valid group with the least amount of partitions.
 
 The number of groups that are brute-force generated is equivalent to the
-_n_<sup>th</sup> [Bell number](https://en.wikipedia.org/wiki/Bell_number) and
-it is sequence [A000110](https://oeis.org/A000110) in the OEIS.
+_n_<sup>th</sup> [Bell number][bell_number_wp] and it is sequence
+[A000110][num_seq] in the OEIS.
 
 It runs in _O(a fuckton of time)_. If you have a lot of stuff in your skincare
 routine, this algorithm may take forever to run.
@@ -164,10 +163,15 @@ colouring problem in the ugliest, most brute force way possible.
 
 ## Attribution
 
-Graphs made using <https://dreampuf.github.io/>
+- Graphs made by me using <https://dreampuf.github.io/>
 
 todo:
 -bibliography
 -license for photos
 -add backpropagated tests to make sure everything in things exists as a key for conflicts
 -instead of screenshot of table, put actual original links into table?
+
+[clique_cover_wp]: https://en.wikipedia.org/wiki/Clique_cover
+[graph_colour_wp]: https://en.wikipedia.org/wiki/Graph_coloring#Vertex_coloring
+[bell_number_wp]: https://en.wikipedia.org/wiki/Bell_number
+[num_seq]: https://oeis.org/A000110
