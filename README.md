@@ -38,6 +38,8 @@ group of partitions, which we exhaustively check: for each partition in the
 group, we check to see if any pair exists as an edge in the conflict
 dictionary. If no such pairs exist among any partition, the group is valid.
 
+![partition tree](resources/partitions.png)
+
 The algorithm looks for the valid group with the least amount of partitions.
 
 The number of groups that are brute-force generated is equivalent to the
@@ -147,6 +149,20 @@ well-studied graph colouring sub-problem known as "vertex colouring": colouring
 a graph such that no two colours are adjacent to each other. In this case, each
 colour group represents a partition, like from earlier. Again, the optimization
 problem is NP-hard and is intractable.
+
+## Bibliography
+
+- <https://en.wikipedia.org/wiki/Clique_cover>
+
+- <https://en.wikipedia.org/wiki/Complement_graph>
+
+- <https://en.wikipedia.org/wiki/Bell_number>
+
+- <https://en.wikipedia.org/wiki/Graph_coloring>
+
+## Other Attribution
+
+Graphs made using <https://dreampuf.github.io/>
 
 todo:
 -bibliography
