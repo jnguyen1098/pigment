@@ -5,7 +5,6 @@ import math
 from collections import OrderedDict
 from typing import List, Union
 
-curr = None
 min_len = None
 result = None
 
@@ -20,7 +19,7 @@ def valid(curr, conflicts):
 
     return True
 
-def backtrack(idx, conflicts, ingredient_names):
+def backtrack(idx, curr, conflicts, ingredient_names):
     if idx == len(ingredient_names):
         global min_len
         if valid(curr, conflicts) and len(curr) < min_len:
@@ -31,22 +30,20 @@ def backtrack(idx, conflicts, ingredient_names):
     for i in range(len(curr) + 1):
         if i == len(curr):
             curr.append([ingredient_names[idx]])
-            backtrack(idx + 1, conflicts, ingredient_names)
+            backtrack(idx + 1, curr, conflicts, ingredient_names)
             curr.pop()
         else:
             curr[i].append(ingredient_names[idx])
-            backtrack(idx + 1, conflicts, ingredient_names)
+            backtrack(idx + 1, curr, conflicts, ingredient_names)
             curr[i].pop()
 
 
 def initialize(conflicts):
     global CONFLICTS
-    global curr
     global min_len
     global result
 
     CONFLICTS = conflicts
-    curr = []
     min_len = math.inf
     result = None
 
@@ -60,7 +57,8 @@ def get_partitions(conflicts):
             ingredient_names.append(conflict)
 
     ingredient_names = list(OrderedDict((name, None) for name in ingredient_names))
-    backtrack(0, conflicts, ingredient_names)
+    curr = []
+    backtrack(0, curr, conflicts, ingredient_names)
     return result
 
 
