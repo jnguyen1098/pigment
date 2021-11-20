@@ -1,0 +1,5 @@
+graph G {
+    "Retinol" -- "AHAs/BHAs";
+    "Copper peptides" -- "AHAs/BHAs";
+    "Ferrulic acid" -- "Copper peptides";
+}

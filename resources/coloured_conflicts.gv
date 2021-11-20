@@ -1,0 +1,11 @@
+graph G {
+    "Retinol" [fillcolor=brown1, style=filled];
+    "Copper peptides" [fillcolor=brown1, style=filled];
+     
+    "AHAs/BHAs" [fillcolor=darkolivegreen1, style=filled];
+    "Ferrulic acid" [fillcolor=darkolivegreen1, style=filled];
+    
+    "Retinol" -- "AHAs/BHAs";
+    "Copper peptides" -- "AHAs/BHAs";
+    "Ferrulic acid" -- "Copper peptides";
+}
