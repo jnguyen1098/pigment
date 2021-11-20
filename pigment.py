@@ -23,7 +23,7 @@ def valid(curr: List[Union[Any, List[Any]]], conflicts: Dict[Any, Any]) -> bool:
 
     return True
 
-def backtrack(idx, curr, conflicts, ingredient_names, result):
+def backtrack(idx: int, curr: List[Union[Any, List[Any]]], conflicts: Dict[Any, Any], ingredient_names: List[Any], result: Result) -> None:
     if idx == len(ingredient_names):
         if valid(curr, conflicts) and len(curr) < result.min_len:
             result.min_len = len(curr)
