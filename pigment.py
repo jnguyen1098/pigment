@@ -6,9 +6,10 @@ from collections import OrderedDict, namedtuple
 from dataclasses import dataclass
 from typing import Any, List, Union
 
+
 @dataclass
 class Result:
-    min_len: int = math.inf
+    min_len: int = 9999999999
     best: List[List[Any]] = None
 
 def valid(curr, conflicts):
