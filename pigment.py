@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import copy
-import math
 from collections import OrderedDict, namedtuple
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Union
@@ -11,6 +10,7 @@ from typing import Any, Dict, List, Union
 class Result:
     min_len: int = 9999999999
     best: List[List[Any]] = field(default_factory=list)
+
 
 def valid(curr: List[Union[Any, List[Any]]], conflicts: Dict[Any, Any]) -> bool:
     for group in curr:
@@ -23,7 +23,14 @@ def valid(curr: List[Union[Any, List[Any]]], conflicts: Dict[Any, Any]) -> bool:
 
     return True
 
-def backtrack(idx: int, curr: List[Union[Any, List[Any]]], conflicts: Dict[Any, Any], ingredient_names: List[Any], result: Result) -> None:
+
+def backtrack(
+    idx: int,
+    curr: List[Union[Any, List[Any]]],
+    conflicts: Dict[Any, Any],
+    ingredient_names: List[Any],
+    result: Result,
+) -> None:
     if idx == len(ingredient_names):
         if valid(curr, conflicts) and len(curr) < result.min_len:
             result.min_len = len(curr)
@@ -62,13 +69,15 @@ def main() -> None:
     ELAA = "Ethylated Ascorbic Acid"
     RETINOL = "Retinol"
 
-    conflicts = OrderedDict((
-        (BUFFET, [AHA, BHA, HIPPIE, ELAA, RETINOL]),
-        (AHA, [RETINOL]),
-        (BHA, [RETINOL]),
-        (HIPPIE, [AHA, BHA, RETINOL]),
-        (ELAA, [AHA, BHA, RETINOL]),
-    ))
+    conflicts = OrderedDict(
+        (
+            (BUFFET, [AHA, BHA, HIPPIE, ELAA, RETINOL]),
+            (AHA, [RETINOL]),
+            (BHA, [RETINOL]),
+            (HIPPIE, [AHA, BHA, RETINOL]),
+            (ELAA, [AHA, BHA, RETINOL]),
+        )
+    )
     partitions = get_partitions(conflicts)
     for line in partitions:
         print(line)
