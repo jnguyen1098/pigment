@@ -100,6 +100,14 @@ nodes (as shown by _K<sub>2</sub>: 1_). For four ingredients, the resultant
 clique has six edges between the four nodes (as shown by _K<sub>2</sub>:6_). To
 see ten ingredients compatible with each other is somewhat uncommon.
 
+| _K_<sub>1</sub>: 0                                                                 | _K_<sub>2</sub>: 1                                                                 | _K_<sub>3</sub>: 3                                                                 | _K_<sub>4</sub>: 6                                                                |
+|------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
+| ![asdf](https://upload.wikimedia.org/wikipedia/commons/a/ad/Complete_graph_K1.svg) | ![asdf](https://upload.wikimedia.org/wikipedia/commons/9/96/Complete_graph_K2.svg) | ![asdf](https://upload.wikimedia.org/wikipedia/commons/5/5a/Complete_graph_K3.svg) | ![asdf](https://upload.wikimedia.org/wikipedia/commons/b/be/3-simplex_graph.svg)  |
+| _K_<sub>5</sub>: 10                                                                | _K_<sub>6</sub>: 15                                                                | _K_<sub>7</sub>: 21                                                                | _K_<sub>8</sub>: 28                                                               |
+| ![asdf](https://upload.wikimedia.org/wikipedia/commons/2/2d/4-simplex_graph.svg)   | ![asdf](https://upload.wikimedia.org/wikipedia/commons/e/e9/5-simplex_graph.svg)   | ![asdf](https://upload.wikimedia.org/wikipedia/commons/c/c8/6-simplex_graph.svg)   | ![asdf](https://upload.wikimedia.org/wikipedia/commons/c/cb/7-simplex_graph.svg)  |
+| _K_<sub>9</sub>: 36                                                                | _K_<sub>10</sub>: 45                                                               | _K_<sub>11</sub>: 55                                                               | _K_<sub>12</sub>: 66                                                              |
+| ![asdf](https://upload.wikimedia.org/wikipedia/commons/2/2c/8-simplex_graph.svg)   | ![asdf](https://upload.wikimedia.org/wikipedia/commons/b/bb/9-simplex_graph.svg)   | ![asdf](https://upload.wikimedia.org/wikipedia/commons/8/86/10-simplex_graph.svg)  | ![asdf](https://upload.wikimedia.org/wikipedia/commons/9/9b/11-simplex_graph.svg) |
+
 ![complete graphs](resources/complete_graphs.png)
 _These images are taken from Wikipedia.org and are by koko90. See `LICENSE` for
 details_
