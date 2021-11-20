@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""Skincare partition algorithm"""
 
 import copy
 from collections import OrderedDict
@@ -8,11 +9,14 @@ from typing import Any, Dict, List, Union
 
 @dataclass
 class Result:
+    """Reference container for mutating results"""
+
     min_len: int = 9999999999
     best: List[List[Any]] = field(default_factory=list)
 
 
 def valid(curr: List[Union[Any, List[Any]]], conflicts: Dict[Any, Any]) -> bool:
+    """Determine if partition has any conflicts."""
     for group in curr:
         for i in range(len(group)):
             for j in range(i + 1, len(group)):
