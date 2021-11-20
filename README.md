@@ -27,7 +27,29 @@ solves the problem of good skincare!
 
 ## Algorithm
 
-## Model
+This algorithm takes in an adjacency list for a conflict graph where each edge
+between two nodes represents an instance of two ingredients conflicting.
+
+It then exhaustively generates every possible partition using a recursive
+backtracking algorithm, where for each ingredient, it explores every sub-tree
+consisting of adding the ingredient to every existing partition before finally
+creating a new partition. Each terminal/leaf node represents a generated
+group of partitions, which we exhaustively check: for each partition in the
+group, we check to see if any pair exists as an edge in the conflict
+dictionary. If no such pairs exist among any partition, the group is valid.
+
+The algorithm looks for the valid group with the least amount of partitions.
+
+The number of groups that are brute-force generated is equivalent to the
+_n_<sup>th</sup> [Bell number](https://en.wikipedia.org/wiki/Bell_number) and
+it is sequence [A000110](https://oeis.org/A000110) in the OEIS.
+
+It runs in _O(a fuckton of time)_. If you have a lot of stuff in your skincare
+routine, this algorithm may take forever to run.
+
+You have been warned.
+
+## Modelling
 
 Say, for the purposes of illustration (as these opinions are still hotly
 debated in the skincare community today), we have the following ingredients:
