@@ -2,13 +2,14 @@
 
 import copy
 import math
-from collections import OrderedDict
-from typing import List, Union
+from collections import OrderedDict, namedtuple
+from dataclasses import dataclass
+from typing import Any, List, Union
 
+@dataclass
 class Result:
-    def __init__(self):
-        self.min_len = math.inf
-        self.best = None
+    min_len: int = math.inf
+    best: List[List[Any]] = None
 
 def valid(curr, conflicts):
     for group in curr:
