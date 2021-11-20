@@ -5,8 +5,10 @@ import math
 from collections import OrderedDict
 from typing import List, Union
 
-min_len = None
-result = None
+class Result:
+    def __init__(self):
+        self.min_len = math.inf
+        self.best = None
 
 def valid(curr, conflicts):
     for group in curr:
@@ -19,33 +21,27 @@ def valid(curr, conflicts):
 
     return True
 
-def backtrack(idx, curr, conflicts, ingredient_names):
+def backtrack(idx, curr, conflicts, ingredient_names, result):
     if idx == len(ingredient_names):
-        global min_len
-        if valid(curr, conflicts) and len(curr) < min_len:
-            min_len = len(curr)
-            global result
-            result = copy.deepcopy(curr)
+        if valid(curr, conflicts) and len(curr) < result.min_len:
+            result.min_len = len(curr)
+            result.best = copy.deepcopy(curr)
         return
     for i in range(len(curr) + 1):
         if i == len(curr):
             curr.append([ingredient_names[idx]])
-            backtrack(idx + 1, curr, conflicts, ingredient_names)
+            backtrack(idx + 1, curr, conflicts, ingredient_names, result)
             curr.pop()
         else:
             curr[i].append(ingredient_names[idx])
-            backtrack(idx + 1, curr, conflicts, ingredient_names)
+            backtrack(idx + 1, curr, conflicts, ingredient_names, result)
             curr[i].pop()
 
 
 def initialize(conflicts):
     global CONFLICTS
-    global min_len
-    global result
 
     CONFLICTS = conflicts
-    min_len = math.inf
-    result = None
 
 
 def get_partitions(conflicts):
@@ -56,10 +52,11 @@ def get_partitions(conflicts):
         for conflict in list_of_conflicts:
             ingredient_names.append(conflict)
 
+    result = Result()
     ingredient_names = list(OrderedDict((name, None) for name in ingredient_names))
     curr = []
-    backtrack(0, curr, conflicts, ingredient_names)
-    return result
+    backtrack(0, curr, conflicts, ingredient_names, result)
+    return result.best
 
 
 def main():
