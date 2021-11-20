@@ -2,6 +2,7 @@
 
 import copy
 import math
+from collections import OrderedDict
 from typing import List, Union
 
 BUFFET = "Buffet + Copper Peptides"
@@ -11,13 +12,13 @@ HIPPIE = "Mad Hippie"
 ELAA = "Ethylated Ascorbic Acid"
 RETINOL = "Retinol"
 
-CONFLICTS = {
-    BUFFET: [AHA, BHA, HIPPIE, ELAA, RETINOL],
-    AHA: [RETINOL],
-    BHA: [RETINOL],
-    HIPPIE: [AHA, BHA, RETINOL],
-    ELAA: [AHA, BHA, RETINOL],
-}
+CONFLICTS = OrderedDict((
+    (BUFFET, [AHA, BHA, HIPPIE, ELAA, RETINOL]),
+    (AHA, [RETINOL]),
+    (BHA, [RETINOL]),
+    (HIPPIE, [AHA, BHA, RETINOL]),
+    (ELAA, [AHA, BHA, RETINOL]),
+))
 
 ingredient_names = []
 
@@ -26,7 +27,7 @@ for conflictor, list_of_conflicts in CONFLICTS.items():
     for conflict in list_of_conflicts:
         ingredient_names.append(conflict)
 
-ingredient_names = list(set(ingredient_names))
+ingredient_names = list(OrderedDict((name, None) for name in ingredient_names))
 
 curr: List[Union[List[str], str]] = []
 min_len = math.inf
