@@ -20,14 +20,14 @@ conflicts = {
     RETINOL: []
 }
 
-things = []
+ingredient_names = []
 
 for conflictor, list_of_conflicts in conflicts.items():
-    things.append(conflictor)
+    ingredient_names.append(conflictor)
     for conflict in list_of_conflicts:
-        things.append(conflict)
+        ingredient_names.append(conflict)
 
-things = list(set(things))
+ingredient_names = list(set(ingredient_names))
 
 curr: List[Union[List[str], str]] = []
 min_len = math.inf
@@ -46,7 +46,7 @@ def valid(curr):
     return True
 
 def backtrack(idx):
-    if idx == len(things):
+    if idx == len(ingredient_names):
         global min_len
         if valid(curr) and len(curr) < min_len:
             min_len = len(curr)
@@ -55,11 +55,11 @@ def backtrack(idx):
         return
     for i in range(len(curr) + 1):
         if i == len(curr):
-            curr.append([things[idx]])
+            curr.append([ingredient_names[idx]])
             backtrack(idx + 1)
             curr.pop()
         else:
-            curr[i].append(things[idx])
+            curr[i].append(ingredient_names[idx])
             backtrack(idx + 1)
             curr[i].pop()
 

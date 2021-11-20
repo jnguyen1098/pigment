@@ -9,7 +9,25 @@ both of which are NP-hard and thus computationally infeasible to find optimal
 solutions for. This project is a brute-force proof-of-concept that exhaustively
 solves the problem of good skincare!
 
-## Our Model
+## Usage
+
+1. Modify the ingredient conflict dictionary (named `conflict` in `pigment.py`)
+   to reflect your skincare products. If you say `A` conflicts with `B`, you
+   don't have to also write the rule that `B` conflicts with `A`. The script
+   handles the reflexivity.
+
+   In the code, this is done through a dictionary of strings named `conflicts`.
+   Use the sample code to create your own list.
+
+2. Run the program (you need Python 3):
+
+   ```bash
+   python3 pigment.py
+   ```
+
+## Algorithm
+
+## Model
 
 Say, for the purposes of illustration (as these opinions are still hotly
 debated in the skincare community today), we have the following ingredients:
@@ -111,3 +129,4 @@ problem is NP-hard and is intractable.
 todo:
 -bibliography
 -license for photos
+-add backpropagated tests to make sure everything in things exists as a key for conflicts
