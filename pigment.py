@@ -15,9 +15,8 @@ conflicts = {
     BUFFET: [AHA, BHA, HIPPIE, ELAA, RETINOL],
     AHA: [RETINOL],
     BHA: [RETINOL],
-    HIPPIE: [AHA, BHA, RETINOL, BUFFET],
+    HIPPIE: [AHA, BHA, RETINOL],
     ELAA: [AHA, BHA, RETINOL],
-    RETINOL: []
 }
 
 ingredient_names = []
@@ -33,14 +32,13 @@ curr: List[Union[List[str], str]] = []
 min_len = math.inf
 result = None
 
-
 def valid(curr):
     for group in curr:
         for i in range(len(group)):
             for j in range(i + 1, len(group)):
-                if group[j] in conflicts[group[i]]:
+                if group[i] in conflicts and group[j] in conflicts[group[i]]:
                     return False
-                if group[i] in conflicts[group[j]]:
+                if group[j] in conflicts and group[i] in conflicts[group[j]]:
                     return False
 
     return True
