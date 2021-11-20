@@ -38,7 +38,7 @@ group of partitions, which we exhaustively check: for each partition in the
 group, we check to see if any pair exists as an edge in the conflict
 dictionary. If no such pairs exist among any partition, the group is valid.
 
-![partition tree](resources/partitions.png)
+![partition tree](resources/partitions.svg)
 
 The algorithm looks for the valid group with the least amount of partitions.
 
@@ -168,3 +168,4 @@ todo:
 -bibliography
 -license for photos
 -add backpropagated tests to make sure everything in things exists as a key for conflicts
+-instead of screenshot of table, put actual original links into table?
