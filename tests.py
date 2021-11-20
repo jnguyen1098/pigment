@@ -46,5 +46,21 @@ class PigmentTest(unittest.TestCase):
         ]))
         cls.assertEqual(partitions, [[A], [B], [C], [D], [E]])
 
+    def test_freedom(cls):
+        A = "A"
+        B = "B"
+        C = "C"
+        D = "D"
+        E = "E"
+        partitions = pigment.get_partitions(OrderedDict([
+            [A, []],
+            [B, []],
+            [C, []],
+            [D, []],
+            [E, []],
+        ]))
+        cls.assertEqual(partitions, [[A, B, C, D, E]])
+
+
 if __name__ == "__main__":
     unittest.main()
