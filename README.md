@@ -101,8 +101,8 @@ clique has six edges between the four nodes (as shown by _K<sub>2</sub>:6_). To
 see ten ingredients compatible with each other is somewhat uncommon.
 
 ![complete graphs](resources/complete_graphs.png)
-_These images are taken from Wikipedia.org and are by koko90. See `LICENSE` for
-details_
+_These images are taken from Wikipedia.org and are by koko90. See
+[attribution](#Attribution) for details_
 
 ## Minimal Clique Cover
 
@@ -127,8 +127,8 @@ terms, a complement graph _G2_ for graph _G_ contains only the edges necessary
 to turn _G_ into a complete graph, as shown by this diagram:
 
 ![complement of the Petersen graph](resources/comp_petersen.jpg)
-_Image edited by Claudio Rocchini; derived from David Eppstein. See `LICENSE`
-for details_
+_Image edited by Claudio Rocchini; derived from David Eppstein. See
+[attribution](#Attribution) for details_
 
 We can invert the "maximal clique" problem by not mapping whether two skincare
 products are compatible with each other, but rather if they conflict. This
@@ -162,7 +162,7 @@ colouring problem in the ugliest, most brute force way possible.
 
 - <https://en.wikipedia.org/wiki/Graph_coloring>
 
-## Other Attribution
+## Attribution
 
 Graphs made using <https://dreampuf.github.io/>
 
