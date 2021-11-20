@@ -55,3 +55,15 @@ clique has six edges between the four nodes (as shown by _K<sub>2</sub>:6_). To
 see ten ingredients compatible with each other is somewhat uncommon.
 
 ![complete graphs](resources/complete_graphs.png)
+_These images are taken from Wikipedia.org and are by koko90. See `LICENSE` for
+details_
+
+In formal terms, a "clique cover" or "partition into cliques" of an undirected
+graph is a partition (or splitting of the graph into groups) into constituent
+cliques. Our problem is to find the "**minimal**" clique cover—aka—doing it in
+the least number of cliques—or splits—possible. As shown in the figure above,
+the trivial case is _K<sub>1</sub>: 0_ as each individual ingredient is its own
+clique, but that's the worst-case scenario we are trying to avoid. It would
+mean that no skincare ingredient is compatible with anything else e.g. you
+may have to take each 10 skincare ingredient on separate days, which would be a
+scheduling nightmare.
