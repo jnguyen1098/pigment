@@ -4,15 +4,15 @@ import copy
 import math
 from collections import OrderedDict, namedtuple
 from dataclasses import dataclass
-from typing import Any, List, Union
+from typing import Any, Dict, List, Union
 
 
 @dataclass
 class Result:
     min_len: int = 9999999999
-    best: List[List[Any]] = None
+    best: Union[List[List[Any]], None] = None
 
-def valid(curr, conflicts):
+def valid(curr: List[Union[Any, List[Any]]], conflicts: Dict[Any, Any]) -> bool:
     for group in curr:
         for i in range(len(group)):
             for j in range(i + 1, len(group)):
