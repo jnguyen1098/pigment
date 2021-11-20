@@ -20,22 +20,19 @@ conflicts = {
     RETINOL: []
 }
 
-things = [BUFFET, AHA, BHA, HIPPIE, ELAA, RETINOL]
+things = []
+
+for conflictor, list_of_conflicts in conflicts.items():
+    things.append(conflictor)
+    for conflict in list_of_conflicts:
+        things.append(conflict)
+
+things = list(set(things))
 
 curr: List[Union[List[str], str]] = []
 min_len = math.inf
 result = None
 
-
-def validate() -> bool:
-    for conflictor, list_of_conflicts in conflicts.items():
-        if conflictor not in things:
-            print(f"{conflictor} not in {things}")
-            exit(1)
-        for conflict in list_of_conflicts:
-            if conflict not in things:
-                print(f"{conflict} not in {things}")
-                exit(1)
 
 def valid(curr):
     for group in curr:
@@ -66,7 +63,6 @@ def backtrack(idx):
             backtrack(idx + 1)
             curr[i].pop()
 
-validate()
 backtrack(0)
 
 for line in result:
