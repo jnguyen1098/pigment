@@ -1,5 +1,8 @@
 # Pigment
 
+[![License: ISC][isc_shield]][isc_link]
+[![CC BY-SA 4.0][cc-by-shield]][cc-by]
+
 The problem of splitting up a skincare regime into partitions such that each
 partition does not interfere with itself is equivalent to the
 [minimal clique cover problem][clique_cover_wp], which can be transformed into
@@ -163,15 +166,37 @@ colouring problem in the ugliest, most brute force way possible.
 
 ## Attribution
 
-- Graphs made by me using <https://dreampuf.github.io/>
+- Graphs made by me using [Dreampuf's Dot Grapher][gv_link] and they are
+  licensed as [CC BY-SA 4.0][cc-by] as the project is
+- Complete graphs [K1][k1_link], [K2][k2_link], and [K3][k3_link] are simple
+  geometry and thus are in the public domain (author is David Benbennick).
+- Simplex graphs [4][s_4], [5][s_5], [6][s_6], [7][s_7], [8][s_8], [9][s_9],
+  [10][s_10], [11][s_11], were released by Koko90 under [GFDL][gfdl] and
+  [CC BY-SA 3.0][cc_by_sa_3_0] and will be coalesced into the license of this
+  project, thus making them [CC BY-SA 4.0][cc-by]
+- The Petersen graph complement image was edited by Claudio Rocchini whose
+  original author was David Eppstein, also released under [GFDL][gfdl] and
+  [CC BY-SA 3.0][cc_by_sa_3_0]. [CC BY-SA 4.0][cc-by] as per the project.
 
-todo:
--bibliography
--license for photos
--add backpropagated tests to make sure everything in things exists as a key for conflicts
--instead of screenshot of table, put actual original links into table?
-
+[isc_shield]: https://img.shields.io/badge/License-ISC-blue.svg
+[isc_link]: https://opensource.org/licenses/ISC
+[cc-by]: https://creativecommons.org/licenses/by-sa/4.0/
+[cc-by-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg
 [clique_cover_wp]: https://en.wikipedia.org/wiki/Clique_cover
 [graph_colour_wp]: https://en.wikipedia.org/wiki/Graph_coloring#Vertex_coloring
 [bell_number_wp]: https://en.wikipedia.org/wiki/Bell_number
 [num_seq]: https://oeis.org/A000110
+[gv_link]: https://dreampuf.github.io/GraphvizOnline/
+[k1_link]: https://en.wikipedia.org/wiki/File:Complete_graph_K1.svg
+[k2_link]: https://en.wikipedia.org/wiki/File:Complete_graph_K2.svg
+[k3_link]: https://en.wikipedia.org/wiki/File:Complete_graph_K3.svg
+[gfdl]: https://www.gnu.org/licenses/fdl-1.3.html
+[s_4]: https://en.wikipedia.org/wiki/File:4-simplex_graph.svg
+[s_5]: https://en.wikipedia.org/wiki/File:5-simplex_graph.svg
+[s_6]: https://en.wikipedia.org/wiki/File:6-simplex_graph.svg
+[s_7]: https://en.wikipedia.org/wiki/File:7-simplex_graph.svg
+[s_8]: https://en.wikipedia.org/wiki/File:8-simplex_graph.svg
+[s_9]: https://en.wikipedia.org/wiki/File:9-simplex_graph.svg
+[s_10]: https://en.wikipedia.org/wiki/File:10-simplex_graph.svg
+[s_11]: https://en.wikipedia.org/wiki/File:11-simplex_graph.svg
+[cc_by_sa_3_0]: https://creativecommons.org/licenses/by-sa/3.0/deed.en
