@@ -39,16 +39,9 @@ def backtrack(idx, curr, conflicts, ingredient_names, result):
             curr[i].pop()
 
 
-def initialize(conflicts):
-    global CONFLICTS
-
-    CONFLICTS = conflicts
-
-
 def get_partitions(conflicts):
-    initialize(conflicts)
     ingredient_names = []
-    for conflictor, list_of_conflicts in CONFLICTS.items():
+    for conflictor, list_of_conflicts in conflicts.items():
         ingredient_names.append(conflictor)
         for conflict in list_of_conflicts:
             ingredient_names.append(conflict)
