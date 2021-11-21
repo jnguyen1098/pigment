@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 
-import pigment
 import unittest
 from collections import OrderedDict
 
+import pigment
+
+
 class PigmentTest(unittest.TestCase):
 
-    def test_simple(cls):
+    def test_simple(cls) -> None:
         partitions = pigment.get_best_partition(OrderedDict((
             (1, (2, 3)),
             (2, (3, 4)),
@@ -14,7 +16,7 @@ class PigmentTest(unittest.TestCase):
         cls.assertEqual(partitions, [[1, 4], [2], [3]])
 
 
-    def test_boilerplate(cls):
+    def test_boilerplate(cls) -> None:
         BUFFET = "BUFFET"
         AHA = "AHA"
         BHA = "BHA"
@@ -32,7 +34,7 @@ class PigmentTest(unittest.TestCase):
             ["BUFFET"], ["AHA", "BHA"], ["HIPPIES", "ELAA"], ["RETINOL"]
         ])
 
-    def test_complete(cls):
+    def test_complete(cls) -> None:
         A = "A"
         B = "B"
         C = "C"
