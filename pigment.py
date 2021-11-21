@@ -28,7 +28,7 @@ def valid(curr_partition: List[List[Any]], conflicts: Dict[Any, Any]) -> bool:
     return True
 
 
-def backtrack2(
+def backtrack(
     idx: int,
     curr: List[List[Any]],
     conflicts: Dict[Any, Any],
