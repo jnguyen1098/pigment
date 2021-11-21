@@ -24,7 +24,6 @@ def valid(curr_partition: List[List[Any]], conflicts: Dict[Any, Any]) -> bool:
                     return False
                 if part[j] in conflicts and elem in conflicts[part[j]]:
                     return False
-
     return True
 
 
