@@ -24,63 +24,63 @@ class PigmentTest(unittest.TestCase):
 
     def test_boilerplate(self) -> None:
         """Run the boilerplate example test."""
-        BUFFET = "BUFFET"
-        AHA = "AHA"
-        BHA = "BHA"
-        HIPPIE = "HIPPIES"
-        ELAA = "ELAA"
-        RETINOL = "RETINOL"
+        buffet = "BUFFET"
+        aha = "AHA"
+        bha = "BHA"
+        hippie = "HIPPIE"
+        elaa = "ELAA"
+        retinol = "RETINOL"
         partitions = pigment.get_best_partition(
             OrderedDict(
                 (
-                    (BUFFET, [AHA, BHA, HIPPIE, ELAA, RETINOL]),
-                    (AHA, [RETINOL]),
-                    (BHA, [RETINOL]),
-                    (HIPPIE, [AHA, BHA, RETINOL]),
-                    (ELAA, [AHA, BHA, RETINOL]),
+                    (buffet, [aha, bha, hippie, elaa, retinol]),
+                    (aha, [retinol]),
+                    (bha, [retinol]),
+                    (hippie, [aha, bha, retinol]),
+                    (elaa, [aha, bha, retinol]),
                 )
             )
         )
-        self.assertEqual(partitions, [["BUFFET"], ["AHA", "BHA"], ["HIPPIES", "ELAA"], ["RETINOL"]])
+        self.assertEqual(partitions, [[buffet], [aha, bha], [hippie, elaa], [retinol]])
 
     def test_complete(self) -> None:
         """Test an instance where all ingredients are incompatible."""
-        A = "A"
-        B = "B"
-        C = "C"
-        D = "D"
-        E = "E"
+        a = "A"
+        b = "B"
+        c = "C"
+        d = "D"
+        e = "E"
         partitions = pigment.get_best_partition(
             OrderedDict(
                 (
-                    (A, [B, C, D, E]),
-                    (B, [C, D, E]),
-                    (C, [D, E]),
-                    (D, [E]),
+                    (a, [b, c, d, e]),
+                    (b, [c, d, e]),
+                    (c, [d, e]),
+                    (d, [e]),
                 )
             )
         )
-        self.assertEqual(partitions, [[A], [B], [C], [D], [E]])
+        self.assertEqual(partitions, [[a], [b], [c], [d], [e]])
 
     def test_freedom(self) -> None:
         """Test an instance where all ingredients are compatible."""
-        A = "A"
-        B = "B"
-        C = "C"
-        D = "D"
-        E = "E"
+        a = "A"
+        b = "B"
+        c = "C"
+        d = "D"
+        e = "E"
         partitions = pigment.get_best_partition(
             OrderedDict(
                 (
-                    (A, []),
-                    (B, []),
-                    (C, []),
-                    (D, []),
-                    (E, []),
+                    (a, []),
+                    (b, []),
+                    (c, []),
+                    (d, []),
+                    (e, []),
                 )
             )
         )
-        self.assertEqual(partitions, [[A, B, C, D, E]])
+        self.assertEqual(partitions, [[a, b, c, d, e]])
 
 
 if __name__ == "__main__":
