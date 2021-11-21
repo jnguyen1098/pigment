@@ -67,7 +67,8 @@ def get_best_partition(conflicts: Dict[Any, Any]) -> List[List[Any]]:
     return result.best
 
 
-def graphviz(conflicts, partition):
+def create_gv(conflicts: OrderedDict[Any, Any], partition: List[List[Any]]) -> None:
+    """Create GraphViz DOT graph to STDOUT."""
     colours = ["red", "orange", "gold", "lawngreen", "turquoise", "magenta"]
     print("graph G {")
     for line in partition:
@@ -75,7 +76,7 @@ def graphviz(conflicts, partition):
             colour = colours.pop()
         except IndexError:
             print("Not enough colours to pop!", file=sys.stderr)
-            exit(1)
+            sys.exit(1)
         for node in line:
             print(f'    "{node}" [style=filled, fillcolor={colour}]')
     print()
@@ -111,7 +112,8 @@ def main() -> None:
         print(part)
     print()
 
-    graphviz(conflicts, best_partition)
+    create_gv(conflicts, best_partition)
+
 
 if __name__ == "__main__":
     main()
