@@ -7,7 +7,7 @@ from collections import OrderedDict
 class PigmentTest(unittest.TestCase):
 
     def test_simple(cls):
-        partitions = pigment.get_partitions(OrderedDict((
+        partitions = pigment.get_best_partition(OrderedDict((
             (1, (2, 3)),
             (2, (3, 4)),
         )))
@@ -21,7 +21,7 @@ class PigmentTest(unittest.TestCase):
         HIPPIE = "HIPPIES"
         ELAA = "ELAA"
         RETINOL = "RETINOL"
-        partitions = pigment.get_partitions(OrderedDict([
+        partitions = pigment.get_best_partition(OrderedDict([
             [BUFFET, [AHA, BHA, HIPPIE, ELAA, RETINOL]],
             [AHA, [RETINOL]],
             [BHA, [RETINOL]],
@@ -38,7 +38,7 @@ class PigmentTest(unittest.TestCase):
         C = "C"
         D = "D"
         E = "E"
-        partitions = pigment.get_partitions(OrderedDict([
+        partitions = pigment.get_best_partition(OrderedDict([
             [A, [B, C, D, E]],
             [B, [C, D, E]],
             [C, [D, E]],
@@ -52,7 +52,7 @@ class PigmentTest(unittest.TestCase):
         C = "C"
         D = "D"
         E = "E"
-        partitions = pigment.get_partitions(OrderedDict([
+        partitions = pigment.get_best_partition(OrderedDict([
             [A, []],
             [B, []],
             [C, []],

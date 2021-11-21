@@ -35,6 +35,7 @@ def backtrack(
     ingredient_names: List[Any],
     result: Result,
 ) -> None:
+    """Recursively iterate through every partition and validate fitness."""
     if idx == len(ingredient_names):
         if valid(curr, conflicts) and len(curr) < result.min_len:
             result.min_len = len(curr)
@@ -51,7 +52,8 @@ def backtrack(
             curr[i].pop()
 
 
-def get_partitions(conflicts: Dict[Any, Any]) -> List[List[Any]]:
+def get_best_partition(conflicts: Dict[Any, Any]) -> List[List[Any]]:
+    """Get best partition using known conflicts."""
     ingredient_names = []
     for conflictor, list_of_conflicts in conflicts.items():
         ingredient_names.append(conflictor)
@@ -82,7 +84,7 @@ def main() -> None:
             (ELAA, [AHA, BHA, RETINOL]),
         )
     )
-    partitions = get_partitions(conflicts)
+    partitions = get_best_partition(conflicts)
     for line in partitions:
         print(line)
     print(len(partitions))
