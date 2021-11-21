@@ -24,11 +24,11 @@ class PigmentTest(unittest.TestCase):
         ELAA = "ELAA"
         RETINOL = "RETINOL"
         partitions = pigment.get_best_partition(OrderedDict([
-            [BUFFET, [AHA, BHA, HIPPIE, ELAA, RETINOL]],
-            [AHA, [RETINOL]],
-            [BHA, [RETINOL]],
-            [HIPPIE, [AHA, BHA, RETINOL]],
-            [ELAA, [AHA, BHA, RETINOL]],
+            (BUFFET, [AHA, BHA, HIPPIE, ELAA, RETINOL]),
+            (AHA, [RETINOL]),
+            (BHA, [RETINOL]),
+            (HIPPIE, [AHA, BHA, RETINOL]),
+            (ELAA, [AHA, BHA, RETINOL]),
         ]))
         cls.assertEqual(partitions, [
             ["BUFFET"], ["AHA", "BHA"], ["HIPPIES", "ELAA"], ["RETINOL"]
@@ -41,25 +41,25 @@ class PigmentTest(unittest.TestCase):
         D = "D"
         E = "E"
         partitions = pigment.get_best_partition(OrderedDict([
-            [A, [B, C, D, E]],
-            [B, [C, D, E]],
-            [C, [D, E]],
-            [D, [E]],
+            (A, [B, C, D, E]),
+            (B, [C, D, E]),
+            (C, [D, E]),
+            (D, [E]),
         ]))
         cls.assertEqual(partitions, [[A], [B], [C], [D], [E]])
 
-    def test_freedom(cls):
+    def test_freedom(cls) -> None:
         A = "A"
         B = "B"
         C = "C"
         D = "D"
         E = "E"
         partitions = pigment.get_best_partition(OrderedDict([
-            [A, []],
-            [B, []],
-            [C, []],
-            [D, []],
-            [E, []],
+            (A, []),
+            (B, []),
+            (C, []),
+            (D, []),
+            (E, []),
         ]))
         cls.assertEqual(partitions, [[A, B, C, D, E]])
 
