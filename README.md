@@ -3,8 +3,8 @@
 [![License: ISC][isc_shield]][isc_link]
 [![CC BY-SA 4.0][cc-by-shield]][cc-by]
 
-The problem of splitting up a skincare regime into partitions such that each
-partition does not interfere with itself is equivalent to the
+The problem of partitioning up a skincare regime into parts such that each
+part does not interfere with itself is equivalent to the
 [minimal clique cover problem][clique_cover_wp], which can be transformed into
 the [vertex colouring of a graph][graph_colour_wp], both of which are NP-hard
 and thus computationally infeasible to find optimal solutions for. This project
@@ -32,17 +32,16 @@ between two nodes represents an instance of two ingredients conflicting.
 It then exhaustively generates every possible partition using a recursive
 backtracking depth-first-search algorithm where for each ingredient, it
 explores every sub-tree consisting of adding the ingredient to every existing
-partition before finally creating a new partition. Each terminal/leaf node
-represents a generated group of partitions, which we exhaustively check: for
-each partition in the group, we check to see if any pair exists as an edge in
-the conflict dictionary. If no such pairs exist among any partition, the group
-is valid.
+part before finally creating a new part. Each terminal/leaf node represents a
+generated partition, which we exhaustively check: for each part in the
+partition, we check to see if any pair exists as an edge in the conflict
+dictionary. If no such pairs exist among any part, the partition is valid.
 
 ![partition tree](resources/partitions.svg)
 
-The algorithm looks for the valid group with the least amount of partitions.
+The algorithm looks for the valid partition with the least amount of parts.
 
-The number of groups that are brute-force generated is equivalent to the
+The number of partitions that are brute-force generated is equivalent to the
 _n_<sup>th</sup> [Bell number][bell_number_wp] and it is sequence
 [A000110][num_seq] in the OEIS.
 
@@ -90,23 +89,22 @@ We can represent the relation above as such:
 
 The ideal here is that we want to take all four of these ingredients at once,
 however as noted by the conflicts above, that isn't possible. The next best
-solution, if we can't create 1 group, is to try to create 2 groups. We know
-that in our model, retinol is compatible with copper peptides, and ferrulic
-acid is compatible with AHAs/BHAs, so we discard the possibility of using
-retinol with ferrulic acid (as the group potentially containing ferrulic acid)
-contains AHAs/BHAs, which are incompatible with retinol, as shown by the lack
-of edge.
+solution, if we can't create 1 part, is to try to create 2 part. We know that
+in our model, retinol is compatible with copper peptides, and ferrulic acid is
+compatible with AHAs/BHAs, but we discard the possibility of using retinol with
+ferrulic acid though, as its part contains AHAs/BHAs, which are not compatible
+with retinol (as shown by the lack of edge).
 
 ![minimum clique](resources/min_clique.svg)
 
 This is the optimal solution. In one skincare session, we take retinol with the
 copper peptides, and another session we take AHAs/BHAs and ferrulic acid.
 
-Our overarching goal, therefore, is to divide the ingredients list into as few
-groups as possible such that each group's ingredients represents a clique,
-where a clique is an induced subgraph that is complete. In layperson's terms,
-we are looking to create subgraphs of ingredients such that each ingredient has
-an edge connected to every other ingredient node in the subgraph. Such complete
+Our major goal, therefore, is to partition the ingredients list into as few
+parts as possible such that each parts's ingredients represents a clique, where
+a clique is an induced subgraph that is complete. In layperson's terms, we are
+looking to create subgraphs of ingredients such that each ingredient has an
+edge connected to every other ingredient node in the subgraph. Such complete
 subgraphs are known as cliques. As shown below, when two ingredients are
 compatible with each other, the resultant clique has a single edge between two
 nodes (as shown by _K<sub>2</sub>: 1_). For four ingredients, the resultant
