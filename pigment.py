@@ -2,6 +2,7 @@
 """Skincare partition algorithm."""
 
 import copy
+import sys
 from collections import OrderedDict
 from dataclasses import dataclass, field
 from typing import Any, Dict, List
@@ -66,6 +67,25 @@ def get_best_partition(conflicts: Dict[Any, Any]) -> List[List[Any]]:
     return result.best
 
 
+def graphviz(conflicts, partition):
+    colours = ["red", "orange", "gold", "lawngreen", "turquoise", "magenta"]
+    print("graph G {")
+    for line in partition:
+        try:
+            colour = colours.pop()
+        except IndexError:
+            print("Not enough colours to pop!", file=sys.stderr)
+            exit(1)
+        for node in line:
+            print(f'    "{node}" [style=filled, fillcolor={colour}]')
+    print()
+
+    for node, edges in conflicts.items():
+        for edge in edges:
+            print(f'    "{node}" -- "{edge}"')
+    print("}")
+
+
 def main() -> None:
     """Execute main flow."""
     buffet = "Buffet + Copper Peptides"
@@ -84,11 +104,14 @@ def main() -> None:
             (elaa, [aha, bha, retinol]),
         )
     )
-    partitions = get_best_partition(conflicts)
-    for line in partitions:
-        print(line)
-    print(len(partitions))
 
+    best_partition = get_best_partition(conflicts)
+
+    for part in best_partition:
+        print(part)
+    print()
+
+    graphviz(conflicts, best_partition)
 
 if __name__ == "__main__":
     main()
