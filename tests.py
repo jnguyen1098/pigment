@@ -10,7 +10,7 @@ import pigment
 class PigmentTest(unittest.TestCase):
     """Test class for Pigment."""
 
-    def test_simple(cls) -> None:
+    def test_simple(self) -> None:
         """Run simple test consisting of just integers."""
         partitions = pigment.get_best_partition(
             OrderedDict(
@@ -20,9 +20,9 @@ class PigmentTest(unittest.TestCase):
                 )
             )
         )
-        cls.assertEqual(partitions, [[1, 4], [2], [3]])
+        self.assertEqual(partitions, [[1, 4], [2], [3]])
 
-    def test_boilerplate(cls) -> None:
+    def test_boilerplate(self) -> None:
         """Run the boilerplate example test."""
         BUFFET = "BUFFET"
         AHA = "AHA"
@@ -41,9 +41,9 @@ class PigmentTest(unittest.TestCase):
                 )
             )
         )
-        cls.assertEqual(partitions, [["BUFFET"], ["AHA", "BHA"], ["HIPPIES", "ELAA"], ["RETINOL"]])
+        self.assertEqual(partitions, [["BUFFET"], ["AHA", "BHA"], ["HIPPIES", "ELAA"], ["RETINOL"]])
 
-    def test_complete(cls) -> None:
+    def test_complete(self) -> None:
         """Test an instance where all ingredients are incompatible."""
         A = "A"
         B = "B"
@@ -60,9 +60,9 @@ class PigmentTest(unittest.TestCase):
                 )
             )
         )
-        cls.assertEqual(partitions, [[A], [B], [C], [D], [E]])
+        self.assertEqual(partitions, [[A], [B], [C], [D], [E]])
 
-    def test_freedom(cls) -> None:
+    def test_freedom(self) -> None:
         """Test an instance where all ingredients are compatible."""
         A = "A"
         B = "B"
@@ -80,7 +80,7 @@ class PigmentTest(unittest.TestCase):
                 )
             )
         )
-        cls.assertEqual(partitions, [[A, B, C, D, E]])
+        self.assertEqual(partitions, [[A, B, C, D, E]])
 
 
 if __name__ == "__main__":
