@@ -28,7 +28,7 @@ def valid(curr_partition: List[List[Any]], conflicts: Dict[Any, Any]) -> bool:
     return True
 
 
-def backtrack(
+def backtrack2(
     idx: int,
     curr: List[List[Any]],
     conflicts: Dict[Any, Any],
@@ -117,3 +117,36 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+"""
+def subset(
+    idx: int,
+    curr: List[List[Any]],
+    conflicts: Dict[Any, Any],
+    ingredient_names: List[Any],
+    result: Result,
+) -> None:
+
+    result = []
+    n = len(ingredient_names)
+    longest = -999999
+    champion = None
+
+    for i in range(2 ** n, 2 ** (n + 1)):
+        mask = bin(i)[3:]
+        tmp = []
+        for idx, b in enumerate(mask):
+            if b == "1":
+                tmp.append(ingredient_names[idx])
+        if valid([tmp], conflicts):
+            result.append(tmp)
+
+    for line in result:
+        if len(line) > longest:
+            champion = line[:]
+            longest = len(line)
+
+    print(champion)
+    
+    exit(1)
+"""
