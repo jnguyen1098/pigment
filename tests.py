@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""Unit tests for Pigment."""
 
 import unittest
 from collections import OrderedDict
@@ -7,7 +8,10 @@ import pigment
 
 
 class PigmentTest(unittest.TestCase):
+    """Test class for Pigment."""
+
     def test_simple(cls) -> None:
+        """Run simple test consisting of just integers."""
         partitions = pigment.get_best_partition(
             OrderedDict(
                 (
@@ -19,6 +23,7 @@ class PigmentTest(unittest.TestCase):
         cls.assertEqual(partitions, [[1, 4], [2], [3]])
 
     def test_boilerplate(cls) -> None:
+        """Run the boilerplate example test."""
         BUFFET = "BUFFET"
         AHA = "AHA"
         BHA = "BHA"
@@ -39,6 +44,7 @@ class PigmentTest(unittest.TestCase):
         cls.assertEqual(partitions, [["BUFFET"], ["AHA", "BHA"], ["HIPPIES", "ELAA"], ["RETINOL"]])
 
     def test_complete(cls) -> None:
+        """Test an instance where all ingredients are incompatible."""
         A = "A"
         B = "B"
         C = "C"
@@ -57,6 +63,7 @@ class PigmentTest(unittest.TestCase):
         cls.assertEqual(partitions, [[A], [B], [C], [D], [E]])
 
     def test_freedom(cls) -> None:
+        """Test an instance where all ingredients are compatible."""
         A = "A"
         B = "B"
         C = "C"
