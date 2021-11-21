@@ -13,7 +13,7 @@ skincare product grouping!
 
 ## Usage
 
-1. Modify the ingredient conflict dictionary (named `CONFLICTS` in the
+1. Modify the ingredient conflict dictionary (named `conflicts` in the
    `pigment.py` mainline) to reflect your skincare products. If you say `A`
    conflicts with `B`, you don't have to also write the rule that `B` conflicts
    with `A`. The script handles the reflexivity.
