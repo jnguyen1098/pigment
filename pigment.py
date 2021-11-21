@@ -15,14 +15,14 @@ class Result:
     best: List[List[Any]] = field(default_factory=list)
 
 
-def valid(curr: List[List[Any]], conflicts: Dict[Any, Any]) -> bool:
+def valid(curr_partition: List[List[Any]], conflicts: Dict[Any, Any]) -> bool:
     """Determine if partition has any conflicts."""
-    for cum in curr:
-        for i in range(len(cum)):
-            for j in range(i + 1, len(cum)):
-                if cum[i] in conflicts and cum[j] in conflicts[cum[i]]:
+    for part in curr_partition:
+        for i in range(len(part)):
+            for j in range(i + 1, len(part)):
+                if part[i] in conflicts and part[j] in conflicts[part[i]]:
                     return False
-                if cum[j] in conflicts and cum[i] in conflicts[cum[j]]:
+                if part[j] in conflicts and part[i] in conflicts[part[j]]:
                     return False
 
     return True
