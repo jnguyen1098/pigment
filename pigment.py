@@ -18,11 +18,11 @@ class Result:
 def valid(curr_partition: List[List[Any]], conflicts: Dict[Any, Any]) -> bool:
     """Determine if partition has any conflicts."""
     for part in curr_partition:
-        for i in range(len(part)):
+        for i, elem in enumerate(part):
             for j in range(i + 1, len(part)):
-                if part[i] in conflicts and part[j] in conflicts[part[i]]:
+                if elem in conflicts and part[j] in conflicts[elem]:
                     return False
-                if part[j] in conflicts and part[i] in conflicts[part[j]]:
+                if part[j] in conflicts and elem in conflicts[part[j]]:
                     return False
 
     return True
