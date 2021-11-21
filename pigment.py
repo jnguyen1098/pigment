@@ -147,6 +147,6 @@ def subset(
             longest = len(line)
 
     print(champion)
-    
+
     exit(1)
 """
