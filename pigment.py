@@ -4,7 +4,7 @@
 import copy
 from collections import OrderedDict
 from dataclasses import dataclass, field
-from typing import Any, Dict, List, Union
+from typing import Any, Dict, List
 
 
 @dataclass
@@ -15,7 +15,7 @@ class Result:
     best: List[List[Any]] = field(default_factory=list)
 
 
-def valid(curr: List[Union[Any, List[Any]]], conflicts: Dict[Any, Any]) -> bool:
+def valid(curr: List[List[Any]], conflicts: Dict[Any, Any]) -> bool:
     """Determine if partition has any conflicts."""
     for cum in curr:
         for i in range(len(cum)):
@@ -30,7 +30,7 @@ def valid(curr: List[Union[Any, List[Any]]], conflicts: Dict[Any, Any]) -> bool:
 
 def backtrack(
     idx: int,
-    curr: List[Union[Any, List[Any]]],
+    curr: List[List[Any]],
     conflicts: Dict[Any, Any],
     ingredient_names: List[Any],
     result: Result,
@@ -60,7 +60,7 @@ def get_partitions(conflicts: Dict[Any, Any]) -> List[List[Any]]:
 
     result = Result()
     ingredient_names = list(OrderedDict((name, None) for name in ingredient_names))
-    curr: List[Union[Any, List[Any]]] = []
+    curr: List[List[Any]] = []
     backtrack(0, curr, conflicts, ingredient_names, result)
     return result.best
 
