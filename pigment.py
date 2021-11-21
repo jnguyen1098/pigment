@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Skincare partition algorithm"""
+"""Skincare partition algorithm."""
 
 import copy
 from collections import OrderedDict
@@ -9,7 +9,7 @@ from typing import Any, Dict, List
 
 @dataclass
 class Result:
-    """Reference container for mutating results"""
+    """Reference container for mutating results."""
 
     min_len: int = 9999999999
     best: List[List[Any]] = field(default_factory=list)
