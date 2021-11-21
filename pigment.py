@@ -17,12 +17,12 @@ class Result:
 
 def valid(curr: List[Union[Any, List[Any]]], conflicts: Dict[Any, Any]) -> bool:
     """Determine if partition has any conflicts."""
-    for group in curr:
-        for i in range(len(group)):
-            for j in range(i + 1, len(group)):
-                if group[i] in conflicts and group[j] in conflicts[group[i]]:
+    for cum in curr:
+        for i in range(len(cum)):
+            for j in range(i + 1, len(cum)):
+                if cum[i] in conflicts and cum[j] in conflicts[cum[i]]:
                     return False
-                if group[j] in conflicts and group[i] in conflicts[group[j]]:
+                if cum[j] in conflicts and cum[i] in conflicts[cum[j]]:
                     return False
 
     return True
