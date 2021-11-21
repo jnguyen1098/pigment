@@ -68,20 +68,21 @@ def get_best_partition(conflicts: Dict[Any, Any]) -> List[List[Any]]:
 
 
 def main() -> None:
-    BUFFET = "Buffet + Copper Peptides"
-    AHA = "Alpha Hydroxy Acids"
-    BHA = "Beta Hydroxy Acids"
-    HIPPIE = "Mad Hippie"
-    ELAA = "Ethylated Ascorbic Acid"
-    RETINOL = "Retinol"
+    """Execute main flow."""
+    buffet = "Buffet + Copper Peptides"
+    aha = "Alpha Hydroxy Acids"
+    bha = "Beta Hydroxy Acids"
+    hippie = "Mad Hippie"
+    elaa = "Ethylated Ascorbic Acid"
+    retinol = "Retinol"
 
     conflicts = OrderedDict(
         (
-            (BUFFET, [AHA, BHA, HIPPIE, ELAA, RETINOL]),
-            (AHA, [RETINOL]),
-            (BHA, [RETINOL]),
-            (HIPPIE, [AHA, BHA, RETINOL]),
-            (ELAA, [AHA, BHA, RETINOL]),
+            (buffet, [aha, bha, hippie, elaa, retinol]),
+            (aha, [retinol]),
+            (bha, [retinol]),
+            (hippie, [aha, bha, retinol]),
+            (elaa, [aha, bha, retinol]),
         )
     )
     partitions = get_best_partition(conflicts)
